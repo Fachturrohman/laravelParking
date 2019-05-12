@@ -44,7 +44,7 @@
                                 <td>Tanggal</td> 
                             <td> 
                                 <div class="col-sm-8"> 
-                                    <input type="date" name="tanggal" class="form-control"  value="{{ $p->tanggal }}" readonly="readonly"> 
+                                    <input type="date" name="tanggal" class="form-control"  value="{{ $p->tanggal }}" > 
                                 </div>
                             </td>
                         </tr> 
@@ -52,7 +52,7 @@
                                 <td>Harga</td> 
                             <td> 
                                 <div class="col-sm-8	"> 
-                            	   <input type="text" name="harga" class="form-control" value="{{ $p->harga }}" readonly="readonly">     
+                            	   <input type="text" name="harga" class="form-control" value="{{ $p->harga }}" >     
                                 </div>
                             </td>
                         </tr> 
