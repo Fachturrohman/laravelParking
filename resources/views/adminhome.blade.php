@@ -20,6 +20,7 @@
                 <table class="table table-striped">
                          <tr>
                              <th>Plat Number</th>
+                             <th>Merk</th>
                              <th>Nama Pemilik</th>
                              <th>Tanggal</th>
                              <th>Harga / Jam</th>
@@ -29,6 +30,7 @@
                          @foreach($parkir as $p)
                          <tr>
                              <td>{{ $p->plat }}</td>
+                             <td>{{ $p->merk }}</td>
                              <td>{{ $p->nama }}</td>
                              <td>{{ $p->tanggal }}</td>
                              <td>Rp.{{ number_format($p->harga) }}</td>

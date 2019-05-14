@@ -26,12 +26,14 @@ class AdminController extends Controller
 
         $this->validate($request,[
            'nama' => 'required|max:25',
-           'plat' => 'required|unique:tb_parkir|max:15'
+           'plat' => 'required|unique:tb_parkir|max:15',
+           'merk' => 'required'
         ]);
 
     // insert data ke table pegawai
     DB::table('tb_parkir')->insert([
         'plat' => $request->plat,
+        'merk' => $request->merk,
         'nama' => $request->nama,
         'tanggal' => $request->tanggal,
         'harga' => $request->harga

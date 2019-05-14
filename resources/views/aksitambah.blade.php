@@ -22,18 +22,26 @@
                 	<div class="table-responsive">
                     <table class="table table-striped">
                         <tr> 
-                                <td>Nama Pemilik</td> 
-                            <td> 
-                                <div class="col-sm-8"> 
-                                    <input type="text" placeholder="Isi Nama Kendaraan" name="nama" class="form-control " value="" required> 
-                                </div>
-                            </td>
-                        </tr>
-                        <tr> 
                                 <td>Plat</td> 
                             <td> 
                                 <div class="col-sm-8"> 
                                     <input type="text" placeholder="Isi Plat Number" name="plat" class="form-control" value="" required> 
+                                </div>
+                            </td>
+                        </tr>
+                        <tr> 
+                                <td>Merk</td> 
+                            <td> 
+                                <div class="col-sm-8"> 
+                                    <input type="text" placeholder="Merk Kendaraan" name="merk" class="form-control" value="" required> 
+                                </div>
+                            </td>
+                        </tr>
+                        <tr> 
+                                <td>Nama Pemilik</td> 
+                            <td> 
+                                <div class="col-sm-8"> 
+                                    <input type="text" placeholder="Isi Nama Kendaraan" name="nama" class="form-control " value="" required> 
                                 </div>
                             </td>
                         </tr>
