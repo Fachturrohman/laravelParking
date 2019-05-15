@@ -3,12 +3,14 @@
 @section('content')
 <div class="col-xs-12 container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Admin Dashboard</div>  
                 <div class="card-body">
                     <a href="/admin/tambah" class="btn btn-sm btn-primary">
-                    <i class="glyphicon glyphicon-plus"></i> Tambah Data</a><p>
+                    <i class="glyphicon glyphicon-plus"></i> Tambah Data</a>
+                        <a href="/admin/tambahkendaraan" class="btn btn-sm btn-danger">
+                    <i class="glyphicon glyphicon-plus"></i> Tambah Data Kendaraan</a><p>
                     
                     <p><b>Masukan Plat Number :</b></p>
                 <form action="/admin/cari" method="GET">
@@ -20,6 +22,7 @@
                 <table class="table table-striped">
                          <tr>
                              <th>Plat Number</th>
+                             <th>Jenis</th>
                              <th>Merk</th>
                              <th>Nama Pemilik</th>
                              <th>Tanggal</th>
@@ -30,6 +33,7 @@
                          @foreach($parkir as $p)
                          <tr>
                              <td>{{ $p->plat }}</td>
+                             <td>{{ $p->jenis }}</td>
                              <td>{{ $p->merk }}</td>
                              <td>{{ $p->nama }}</td>
                              <td>{{ $p->tanggal }}</td>

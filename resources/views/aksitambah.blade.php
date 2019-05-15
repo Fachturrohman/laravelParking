@@ -29,6 +29,18 @@
                                 </div>
                             </td>
                         </tr>
+                        <tr>
+                                <td>Jenis Kendaraan</td>
+                            <td>
+                                <div class="col-sm-8">
+                                <select class="form-control" name="id_kendaraan">
+                                    @foreach ($kendaraan as $p)
+                                          <option value="{{ $p->id_kendaraan }}">{{ $p->jenis }}</option>
+                                    @endforeach
+                                </select>
+                                </div>
+                            </td>
+                        </tr>
                         <tr> 
                                 <td>Merk</td> 
                             <td> 

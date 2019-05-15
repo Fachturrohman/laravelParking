@@ -33,9 +33,9 @@
             width:740px;
         }
         td, tr, th{
-            padding:12px;
+            padding:8px;
             border:1px solid #333;
-            width:185px;
+            width:15px;
         }
         th{
             background-color: #f0f0f0;
@@ -53,8 +53,7 @@
             </caption>
             <thead>
                 <tr>
-                    <th colspan="3">Parkiran <strong>#</strong></th>
-                    <th></th>
+                    <th colspan="6">Parkiran <strong>#</strong></th>
                 </tr>
                 <tr>
                     <td colspan="2">
@@ -74,11 +73,21 @@
                         </p>
                     </h2>
                     </td>
+                    <td colspan="2">
+                        <h4>Perhatian: </h4>
+                        <h2>
+                        <p>
+                            Jangan Tinggalkan Barang Bawaan Anda
+                        </p>
+                    </h2>
+                    </td>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th>Plat Number</th>
+                    <th>Jenis</th>
+                    <th>Merk</th>
                     <th>Nama</th>
                     <th>Tanggal</th>
                     <th>Harga</th>
@@ -86,6 +95,8 @@
 			@foreach($parkir as $p)
 			<tr>
 				<td>{{$p->plat}}</td>
+                <td>{{ $p->id_kendaraan }}</td>
+                <td>{{ $p->merk}}</td>
 				<td>{{$p->nama}}</td>
 				<td>{{$p->tanggal}}</td>
 				<td>Rp. {{ number_format($p->harga)}}</td>

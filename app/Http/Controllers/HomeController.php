@@ -25,16 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $parkir = DB::table('tb_parkir')->get();
+        $parkir = DB::table('tb_parkir')->join('kendaraan', 'tb_parkir.id_kendaraan', '=', 'kendaraan.id_kendaraan')->get();
         return view('home',['parkir' => $parkir]);
         //return view('home');
     }
 
     public function tambah()
     {
- 
+        
+        $kendaraan = DB::table('kendaraan')->get();
     // memanggil view tambah
-    return view('tambah');
+    return view('tambah', ['kendaraan' => $kendaraan]);
  
     }
 
@@ -43,12 +44,15 @@ class HomeController extends Controller
 
         $this->validate($request,[
            'nama' => 'required|max:25',
-           'plat' => 'required|unique:tb_parkir|max:15'
+           'plat' => 'required|unique:tb_parkir|max:15',           
+           'merk' => 'required'
         ]);
 
     // insert data ke table pegawai
     DB::table('tb_parkir')->insert([
+        'id_kendaraan' => $request->id_kendaraan,
         'plat' => $request->plat,
+        'merk' => $request->merk,
         'nama' => $request->nama,
         'tanggal' => $request->tanggal,
         'harga' => $request->harga
@@ -68,7 +72,7 @@ class HomeController extends Controller
         $cari = $request->cari;
  
             // mengambil data dari table pegawai sesuai pencarian data
-        $parkir = DB::table('tb_parkir')
+        $parkir = DB::table('tb_parkir')->join('kendaraan', 'tb_parkir.id_kendaraan', '=', 'kendaraan.id_kendaraan')
         ->where('plat','like',"%".$cari."%")
         ->paginate();
  

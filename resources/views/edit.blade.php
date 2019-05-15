@@ -40,6 +40,28 @@
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
+                        <tr>
+                                <td>Jenis Kendaraan</td>
+                            <td>
+                                <div class="col-sm-8">
+                                <select class="form-control" name="id_kendaraan">
+                                    @foreach ($kendaraan as $p)
+                                          <option value="{{ $p->id_kendaraan }}">{{ $p->jenis }}</option>
+                                    @endforeach
+                                </select>
+                                </div>
+                            </td>
+                        </tr>
+                        @foreach ($parkir as $p)
+                        <tr> 
+                                <td>Merk</td> 
+                            <td> 
+                                <div class="col-sm-8"> 
+                                    <input type="text" placeholder="Merk Kendaraan" name="merk" class="form-control" value="{{ $p->merk }}" required> 
+                                </div>
+                            </td>
+                        </tr>
                         <tr> 
                                 <td>Tanggal</td> 
                             <td> 

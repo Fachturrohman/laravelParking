@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-xs-12 container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Dashboard</div>  
                 <div class="card-body">
@@ -20,14 +20,19 @@
                 <table class="table table-striped">
                          <tr>
                              <th>Plat Number</th>
+                             <th>Jenis</th>
+                             <th>Merk</th>
                              <th>Nama Pemilik</th>
                              <th>Tanggal</th>
                              <th>Harga / Jam</th>
                              <th>Opsi</th>
                          </tr>
+
                          @foreach($parkir as $p)
                          <tr>
                              <td>{{ $p->plat }}</td>
+                             <td>{{ $p->jenis }}</td>
+                             <td>{{ $p->merk }}</td>
                              <td>{{ $p->nama }}</td>
                              <td>{{ $p->tanggal }}</td>
                              <td>Rp.{{ number_format($p->harga) }}</td>

@@ -22,23 +22,38 @@
                 	<div class="table-responsive">
                     <table class="table table-striped">
                         <tr> 
-                                <td>Nama Pemilik</td> 
-                            <td> 
-                                <div class="col-sm-8"> 
-                                    <input type="text" placeholder="Isi Nama Kendaraan" name="nama" class="form-control " value="" required> 
-                                    <!-- @if ($errors->has('nama'))
-                                    <span clas="help-blok">
-                                        <strong>{{$errors->first('nama') }}</strong>
-                                    </span>
-                                    @endif -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr> 
                                 <td>Plat</td> 
                             <td> 
                                 <div class="col-sm-8"> 
                                     <input type="text" placeholder="Isi Plat Number" name="plat" class="form-control" value="" required> 
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                                <td>Jenis Kendaraan</td>
+                            <td>
+                                <div class="col-sm-8">
+                                <select class="form-control" name="id_kendaraan">
+                                    @foreach ($kendaraan as $p)
+                                          <option value="{{ $p->id_kendaraan }}">{{ $p->jenis }}</option>
+                                    @endforeach
+                                </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr> 
+                                <td>Merk</td> 
+                            <td> 
+                                <div class="col-sm-8"> 
+                                    <input type="text" placeholder="Merk Kendaraan" name="merk" class="form-control" value="" required> 
+                                </div>
+                            </td>
+                        </tr>
+                        <tr> 
+                                <td>Nama Pemilik</td> 
+                            <td> 
+                                <div class="col-sm-8"> 
+                                    <input type="text" placeholder="Isi Nama Kendaraan" name="nama" class="form-control " value="" required> 
                                 </div>
                             </td>
                         </tr>
@@ -53,15 +68,15 @@
                         <tr> 
                                 <td>Harga</td> 
                             <td> 
-                                <div class="col-sm-8	"> 
-                            	   <input type="text" name="harga" class="form-control" value="{{5000}}" readonly="readonly">     
+                                <div class="col-sm-8    "> 
+                                   <input type="text" name="harga" class="form-control" value="{{5000}}" readonly="readonly">     
                                 </div>
                             </td>
                         </tr> 
                         <tr> 
                             <td colspan="2">
                                 <input type="submit" class="btn btn-success" value="Simpan"> 
-							    <a href="/home" class="btn btn-primary btn-md">Kembali</a>
+                                <a href="/home" class="btn btn-primary btn-md">Kembali</a>
                             </td> 
                         </tr>
                     </table> 

@@ -9,15 +9,16 @@ class AdminController extends Controller
 {
 	public function index()
     {
-    	$parkir = DB::table('tb_parkir')->get();
+    	$parkir = DB::table('tb_parkir')->join('kendaraan', 'tb_parkir.id_kendaraan', '=', 'kendaraan.id_kendaraan')->get();
     	return view('adminhome',['parkir' => $parkir]);    
     }
 
     public function tambah()
     {
- 
+             $kendaraan = DB::table('kendaraan')->get();
+
     // memanggil view tambah
-    return view('aksitambah');
+    return view('aksitambah', ['kendaraan' => $kendaraan]);
  
     }
 
@@ -32,6 +33,7 @@ class AdminController extends Controller
 
     // insert data ke table pegawai
     DB::table('tb_parkir')->insert([
+        'id_kendaraan' => $request->id_kendaraan,
         'plat' => $request->plat,
         'merk' => $request->merk,
         'nama' => $request->nama,
@@ -49,10 +51,11 @@ class AdminController extends Controller
 
 	public function edit($id)
 	{
+        $kendaraan = DB::table('kendaraan')->get();
 	// mengambil data pegawai berdasarkan id yang dipilih
 	$parkir = DB::table('tb_parkir')->where('id_parkir',$id)->get();
 	// passing data pegawai yang didapat ke view edit.blade.php
-	return view('edit',['parkir' => $parkir]);
+	return view('edit',['parkir' => $parkir], ['kendaraan' => $kendaraan]);
  
 	}
 
@@ -64,7 +67,9 @@ class AdminController extends Controller
 
 	// update data pegawai
 	DB::table('tb_parkir')->where('id_parkir',$request->id)->update([
-		'plat' => $request->plat,
+		'id_kendaraan' => $request->id_kendaraan,
+        'plat' => $request->plat,
+        'merk' => $request->merk,
 		'nama' => $request->nama,
 		'tanggal' => $request->tanggal,
 		'harga' => $request->harga
@@ -88,7 +93,7 @@ class AdminController extends Controller
         $cari = $request->cari;
  
             // mengambil data dari table pegawai sesuai pencarian data
-        $parkir = DB::table('tb_parkir')
+        $parkir = DB::table('tb_parkir')->join('kendaraan', 'tb_parkir.id_kendaraan', '=', 'kendaraan.id_kendaraan')
         ->where('plat','like',"%".$cari."%")
         ->paginate();
  
@@ -97,6 +102,30 @@ class AdminController extends Controller
  
     }
 
-	
+     public function tambahkendaraan()
+    {
+             $kendaraan = DB::table('kendaraan')->get();
+
+    // memanggil view tambah
+    return view('tambahkendaraan', ['kendaraan' => $kendaraan]);
+ 
+    }
+
+	public function storekendaraan(Request $request)
+    {
+
+        $this->validate($request,[
+           'jenis' => 'required|max:25'
+        ]);
+
+    // insert data ke table pegawai
+    DB::table('kendaraan')->insert([
+        'jenis' => $request->jenis
+    ]);
+
+    // alihkan halaman ke halaman pegawai
+    return redirect('/admin');
+ 
+    }
     
 }
