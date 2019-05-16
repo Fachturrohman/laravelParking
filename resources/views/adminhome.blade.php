@@ -89,7 +89,7 @@
       'lengthChange': true,
       'searching'   : false,
       'ordering'    : true,
-      'info'        : true,
+      'info'        : false,
       'autoWidth'   : false
     })
   })
