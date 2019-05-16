@@ -22,8 +22,9 @@ Route::post('/admin/store','AdminController@store');
 Route::get('/home/cetak/{id}','CetakController@pdf');
 
 
-Route::get('/admin/tambahkendaraan','AdminController@tambahkendaraan');
-Route::post('/admin/storekendaraan','AdminController@storekendaraan');
+Route::get('/admin/tambahkendaraan','Kendaraan@tambahkendaraan');
+Route::post('/admin/storekendaraan','Kendaraan@storekendaraan');
+Route::get('/admin/hapuskendaraan/{id}','Kendaraan@hapus');
 
 
 Auth::routes();

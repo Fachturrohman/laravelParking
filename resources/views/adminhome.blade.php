@@ -1,37 +1,57 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+
+  <link rel="stylesheet" href="{{url('assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 
 @section('content')
-<div class="col-xs-12 container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">Admin Dashboard</div>  
-                <div class="card-body">
-                    <a href="/admin/tambah" class="btn btn-sm btn-primary">
-                    <i class="glyphicon glyphicon-plus"></i> Tambah Data</a>
-                        <a href="/admin/tambahkendaraan" class="btn btn-sm btn-danger">
-                    <i class="glyphicon glyphicon-plus"></i> Tambah Data Kendaraan</a><p>
-                    
-                    <p><b>Masukan Plat Number :</b></p>
-                <form action="/admin/cari" method="GET">
-                    <input type="text" name="cari" class="col-md-3" placeholder="Masukan Plat Number" value="{{ old('cari') }}">
-                    <input type="submit" class="btn btn-primary btn-sm" value="CARI">
-                </form><p>
+<section class="content-header">
+      <h1>
+        DATA PARKIR
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href=""><i class="fa fa-dashboard"></i>Home</a></li>
+        <li class="active">Data Parkir</li>
+      </ol>
+    </section>
 
-            <div class="table-responsive">
-                <table class="table table-striped">
+    <!-- Main content -->
+        <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box box-success">
+            <div class="box-header with-border">
+              <h4><b>Tambah Data :</b></h4>
+                      <a href="/admin/tambah" class="btn btn-md btn-primary">
+                    <i class="glyphicon glyphicon-plus"></i> Tambah Data</a><p>
+
+                      <h4><p><b>Masukan Plat Number :</b></p></h4>
+                <form action="/admin/cari" method="GET">
+                    <input type="text" name="cari" placeholder="Masukan Plat Number" value="{{ old('cari') }}">
+                    <input type="submit" class="btn bg-navy btn-sm" value="CARI">
+                </form>
+                     
+            </div>
+            <div class="box-body">
+                <div class="table-responsive">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Plat Number</th>
+                    <th>Jenis</th>
+                    <th>Merk</th>
+                    <th>Nama Pemilik</th>
+                    <th>Tanggal</th>
+                    <th>Harga / Jam</th>
+                    <th>Opsi</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <?php $no = 0;?>
+                  @foreach($parkir as $p)
+                    <?php $no++ ;?>
                          <tr>
-                             <th>Plat Number</th>
-                             <th>Jenis</th>
-                             <th>Merk</th>
-                             <th>Nama Pemilik</th>
-                             <th>Tanggal</th>
-                             <th>Harga / Jam</th>
-                             <th>Opsi</th>
-                         </tr>
-                        
-                         @foreach($parkir as $p)
-                         <tr>
+                             <td>{{ $no }}</td>
                              <td>{{ $p->plat }}</td>
                              <td>{{ $p->jenis }}</td>
                              <td>{{ $p->merk }}</td>
@@ -47,13 +67,31 @@
                              </td>
                          </tr>
                          @endforeach
-                   </table>
-                   </div>
-               </div>
-                </div>
+                </tbody>
+              </table>
+          </div>
             </div>
-
-        </div>
-    </div>
-</div>
+            <!-- /.box-body -->
+          </div>
+    </div> 
+    </div>     
+    </section>
+  <script src="{{ url('assets/dist/js/adminlte.min.js') }}"></script>
+<script src="{{ url('assets/bower_components/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ url('assets/dist/js/demo.js') }}"></script>
+  <script src="{{url('assets/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{url('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 @endsection

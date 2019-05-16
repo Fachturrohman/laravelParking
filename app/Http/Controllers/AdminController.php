@@ -101,31 +101,4 @@ class AdminController extends Controller
         return view('adminhome',['parkir' => $parkir]);
  
     }
-
-     public function tambahkendaraan()
-    {
-             $kendaraan = DB::table('kendaraan')->get();
-
-    // memanggil view tambah
-    return view('tambahkendaraan', ['kendaraan' => $kendaraan]);
- 
-    }
-
-	public function storekendaraan(Request $request)
-    {
-
-        $this->validate($request,[
-           'jenis' => 'required|max:25'
-        ]);
-
-    // insert data ke table pegawai
-    DB::table('kendaraan')->insert([
-        'jenis' => $request->jenis
-    ]);
-
-    // alihkan halaman ke halaman pegawai
-    return redirect('/admin');
- 
-    }
-    
 }
