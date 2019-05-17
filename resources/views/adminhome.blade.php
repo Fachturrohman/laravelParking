@@ -20,9 +20,12 @@
         <div class="col-xs-12">
           <div class="box box-success">
             <div class="box-header with-border">
-              <h4><b>Tambah Data :</b></h4>
-                      <a href="/admin/tambah" class="btn btn-md btn-primary">
-                      <i class="glyphicon glyphicon-plus"></i> Tambah Data</a><p>
+              <h4><b>Tambah Data : &emsp;&emsp;&emsp; Ekspor Data :</b></h4>
+                      <a href="/admin/tambah" class="btn btn-md btn-primary btn-sm">
+                      <i class="glyphicon glyphicon-plus"></i> Tambah Data</a>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;
+                      <a href="/admin/tambah" class="btn bg-olive btn-primary btn-sm">
+                      <i class="glyphicon glyphicon-export"></i> Ekspor Data</a><p>
 
               <h4><p><b>Masukan Plat Number :</b></p></h4>
                 <form action="/admin/cari" method="GET">

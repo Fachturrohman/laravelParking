@@ -19,7 +19,7 @@
       <div class="box box-success">
         <div class="box-header with-border">
             <h4><b>Tambah Data :</b></h4>
-              <a href="/home/tambah" class="btn btn-md btn-primary">
+              <a href="/home/tambah" class="btn btn-md btn-primary btn-sm">
               <i class="glyphicon glyphicon-plus"></i> Tambah Data</a><p>
 
             <h4><p><b>Masukan Plat Number :</b></p></h4>

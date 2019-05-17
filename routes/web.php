@@ -27,6 +27,8 @@ Route::get('/admin/hapuskendaraan/{id}','Kendaraan@hapus');
 Route::get('/home/tambahkendaraan','KendaraanController@tambahkendaraan');
 Route::post('/home/storekendaraan','KendaraanController@storekendaraan');
 
+Route::get('/excel-view','ExcelController@export');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
