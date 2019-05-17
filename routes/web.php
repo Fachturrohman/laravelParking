@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function(){
-  return view('Auth.login');
+  return view('auth.login');
 });
 
 Route::get('/admin','AdminController@index');
