@@ -10,10 +10,9 @@ class CetakController extends Controller
 {
     function pdf($id)
     {
-    	$kendaraan = DB::table('kendaraan')->get();
 
-    	$parkir = parkir::all()->where('id_parkir',$id);
-    	$pdf = PDF::loadView('pdf', ['parkir' => $parkir], ['kendaraan' => $kendaraan])->setPaper('a4', 'landscape');
+    	$parkir = DB::table('tb_parkir')->join('kendaraan', 'tb_parkir.id_kendaraan', '=', 'kendaraan.id_kendaraan')->where('id_parkir',$id)->get();
+    	$pdf = PDF::loadView('pdf', ['parkir' => $parkir])->setPaper('a4', 'landscape');
 		return $pdf->download('invoice.pdf');
     }
 }

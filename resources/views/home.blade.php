@@ -1,53 +1,89 @@
-@extends('layouts.app')
+@extends('layouts.user.user')
+
+<link rel="stylesheet" href="{{url('assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 
 @section('content')
-<div class="col-xs-12 container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">Dashboard</div>  
-                <div class="card-body">
-                    <a href="/home/tambah" class="btn btn-sm btn-primary">
-                    <i class="glyphicon glyphicon-plus"></i> Tambah Data</a><p>
-                    
-                    <p><b>Masukan Plat Number :</b></p>
-                <form action="/home/cari" method="GET">
-                    <input type="text" name="cari" class="col-md-3" placeholder="Masukan Plat Number" value="{{ old('cari') }}">
-                    <input type="submit" class="btn btn-primary btn-sm" value="CARI">
-                </form><p>
+<section class="content-header">
+      <h1>
+        DATA PARKIR
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href=""><i class="fa fa-dashboard"></i>Home</a></li>
+        <li class="active">Data Parkir</li>
+      </ol>
+    </section>
 
-            <div class="table-responsive">
-                <table class="table table-striped">
-                         <tr>
-                             <th>Plat Number</th>
-                             <th>Jenis</th>
-                             <th>Merk</th>
-                             <th>Nama Pemilik</th>
-                             <th>Tanggal</th>
-                             <th>Harga / Jam</th>
-                             <th>Opsi</th>
-                         </tr>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-success">
+        <div class="box-header with-border">
+            <h4><b>Tambah Data :</b></h4>
+              <a href="/home/tambah" class="btn btn-md btn-primary">
+              <i class="glyphicon glyphicon-plus"></i> Tambah Data</a><p>
 
-                         @foreach($parkir as $p)
-                         <tr>
-                             <td>{{ $p->plat }}</td>
-                             <td>{{ $p->jenis }}</td>
-                             <td>{{ $p->merk }}</td>
-                             <td>{{ $p->nama }}</td>
-                             <td>{{ $p->tanggal }}</td>
-                             <td>Rp.{{ number_format($p->harga) }}</td>
-                             <td>
-                                 <a href="/home/cetak/{{ $p->id_parkir }}" class="btn btn-success btn-sm">Cetak</a>
-                             </td>
-                         </tr>
-                         @endforeach
-                   </table>
-                   </div>
-               </div>
-                </div>
-            </div>
-
+            <h4><p><b>Masukan Plat Number :</b></p></h4>
+              <form action="/home/cari" method="GET">
+                <input type="text" name="cari" placeholder="Masukan Plat Number" value="{{ old('cari') }}">
+                <input type="submit" class="btn bg-navy btn-sm" value="CARI">
+              </form>       
         </div>
-    </div>
-</div>
+        <div class="box-body">
+          <div class="table-responsive">
+            <table id="example2" class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Plat Number</th>
+                  <th>Jenis</th>
+                  <th>Merk</th>
+                  <th>Nama Pemilik</th>
+                  <th>Tanggal</th>
+                  <th>Harga / Jam</th>
+                  <th>Opsi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php $no = 0;?>
+                @foreach($parkir as $p)
+                <?php $no++ ;?>
+                <tr>
+                  <td>{{ $no }}</td>
+                  <td>{{ $p->plat }}</td>
+                  <td>{{ $p->jenis }}</td>
+                  <td>{{ $p->merk }}</td>
+                  <td>{{ $p->nama }}</td>
+                  <td>{{ $p->tanggal }}</td>
+                  <td>Rp.{{ number_format($p->harga) }}</td>
+                  <td>
+                      <a href="/home/cetak/{{ $p->id_parkir }}" class="btn btn-warning btn-sm">Cetak</a>
+                  </td>
+                </tr>
+                @endforeach
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>     
+</section>
+
+<script src="{{ url('assets/dist/js/adminlte.min.js') }}"></script>
+<script src="{{ url('assets/bower_components/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ url('assets/dist/js/demo.js') }}"></script>
+<script src="{{url('assets/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{url('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script>
+  $(function () {
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : false,
+      'autoWidth'   : false
+    })
+  })
+</script>
 @endsection

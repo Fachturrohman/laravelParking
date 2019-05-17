@@ -95,15 +95,13 @@
 			@foreach($parkir as $p)
 			<tr>
 				<td>{{$p->plat}}</td>
-                <td>{{ $p->id_kendaraan }}</td>
+                <td>{{ $p->jenis }}</td>
                 <td>{{ $p->merk}}</td>
 				<td>{{$p->nama}}</td>
 				<td>{{$p->tanggal}}</td>
 				<td>Rp. {{ number_format($p->harga)}}</td>
 			</tr>
 			@endforeach
-
-
             </tbody>
         </table>
     </div>

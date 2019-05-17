@@ -33,8 +33,8 @@
                     
                     <div class="container-login100-form-btn">
                         <button type="submit" class="login100-form-btn">
-                                    {{ __('Login') }}
-                                </button>
+                            {{ __('Login') }}
+                        </button>
                     </div>
 
                     <div class="text-center p-t-136">

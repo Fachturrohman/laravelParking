@@ -34,8 +34,8 @@ class HomeController extends Controller
     {
         
         $kendaraan = DB::table('kendaraan')->get();
-    // memanggil view tambah
-    return view('tambah', ['kendaraan' => $kendaraan]);
+        // memanggil view tambah
+        return view('tambah', ['kendaraan' => $kendaraan]);
  
     }
 
@@ -48,7 +48,7 @@ class HomeController extends Controller
            'merk' => 'required'
         ]);
 
-    // insert data ke table pegawai
+    // insert data ke table parkir
     DB::table('tb_parkir')->insert([
         'id_kendaraan' => $request->id_kendaraan,
         'plat' => $request->plat,
@@ -58,11 +58,8 @@ class HomeController extends Controller
         'harga' => $request->harga
     ]);
 
-     
-
-
-    // alihkan halaman ke halaman pegawai
-    return redirect('/home');
+        // alihkan halaman ke halaman home
+        return redirect('/home');
  
     }
 
@@ -71,12 +68,12 @@ class HomeController extends Controller
         // menangkap data pencarian
         $cari = $request->cari;
  
-            // mengambil data dari table pegawai sesuai pencarian data
+        // mengambil data dari table parkir sesuai pencarian data
         $parkir = DB::table('tb_parkir')->join('kendaraan', 'tb_parkir.id_kendaraan', '=', 'kendaraan.id_kendaraan')
         ->where('plat','like',"%".$cari."%")
         ->paginate();
  
-            // mengirim data pegawai ke view index
+        // mengirim data parkir ke view home
         return view('home',['parkir' => $parkir]);
  
     }

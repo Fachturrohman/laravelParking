@@ -15,10 +15,10 @@ class AdminController extends Controller
 
     public function tambah()
     {
-             $kendaraan = DB::table('kendaraan')->get();
+        $kendaraan = DB::table('kendaraan')->get();
 
-    // memanggil view tambah
-    return view('aksitambah', ['kendaraan' => $kendaraan]);
+        // memanggil view aksitambah
+        return view('aksitambah', ['kendaraan' => $kendaraan]);
  
     }
 
@@ -31,31 +31,28 @@ class AdminController extends Controller
            'merk' => 'required'
         ]);
 
-    // insert data ke table pegawai
-    DB::table('tb_parkir')->insert([
-        'id_kendaraan' => $request->id_kendaraan,
-        'plat' => $request->plat,
-        'merk' => $request->merk,
-        'nama' => $request->nama,
-        'tanggal' => $request->tanggal,
-        'harga' => $request->harga
+        // insert data ke table tb_parkir
+        DB::table('tb_parkir')->insert([
+            'id_kendaraan' => $request->id_kendaraan,
+            'plat' => $request->plat,
+            'merk' => $request->merk,
+            'nama' => $request->nama,
+            'tanggal' => $request->tanggal,
+            'harga' => $request->harga
     ]);
 
-     
-
-
-    // alihkan halaman ke halaman pegawai
-    return redirect('/admin');
+        // alihkan halaman ke halaman admin
+        return redirect('/admin');
  
     }
 
 	public function edit($id)
 	{
         $kendaraan = DB::table('kendaraan')->get();
-	// mengambil data pegawai berdasarkan id yang dipilih
-	$parkir = DB::table('tb_parkir')->where('id_parkir',$id)->get();
-	// passing data pegawai yang didapat ke view edit.blade.php
-	return view('edit',['parkir' => $parkir], ['kendaraan' => $kendaraan]);
+	   // mengambil data parkir berdasarkan id yang dipilih
+	   $parkir = DB::table('tb_parkir')->where('id_parkir',$id)->get();
+	   // passing data parkir yang didapat ke view edit.blade.php
+	   return view('edit',['parkir' => $parkir], ['kendaraan' => $kendaraan]);
  
 	}
 
@@ -65,8 +62,8 @@ class AdminController extends Controller
            'nama' => 'required|max:25',
         ]);
 
-	// update data pegawai
-	DB::table('tb_parkir')->where('id_parkir',$request->id)->update([
+	   // update data parkir
+	   DB::table('tb_parkir')->where('id_parkir',$request->id)->update([
 		'id_kendaraan' => $request->id_kendaraan,
         'plat' => $request->plat,
         'merk' => $request->merk,
@@ -74,17 +71,18 @@ class AdminController extends Controller
 		'tanggal' => $request->tanggal,
 		'harga' => $request->harga
 	]);
-	// alihkan halaman ke halaman pegawai
-	return redirect('/admin');
+
+	   // alihkan halaman ke halaman admin
+	   return redirect('/admin');
 	}
 
 	public function hapus($id)
 	{
-	// menghapus data pegawai berdasarkan id yang dipilih
-	DB::table('tb_parkir')->where('id_parkir',$id)->delete();
+	   // menghapus data parkir berdasarkan id yang dipilih
+	   DB::table('tb_parkir')->where('id_parkir',$id)->delete();
 		
-	// alihkan halaman ke halaman pegawai
-	return redirect('/admin');
+	   // alihkan halaman ke halaman admin
+	   return redirect('/admin');
 	}
 
 	public function cari(Request $request)
@@ -92,12 +90,12 @@ class AdminController extends Controller
         // menangkap data pencarian
         $cari = $request->cari;
  
-            // mengambil data dari table pegawai sesuai pencarian data
+        // mengambil data dari table parkir sesuai pencarian data
         $parkir = DB::table('tb_parkir')->join('kendaraan', 'tb_parkir.id_kendaraan', '=', 'kendaraan.id_kendaraan')
         ->where('plat','like',"%".$cari."%")
         ->paginate();
  
-            // mengirim data pegawai ke view index
+        // mengirim data parkir ke view adminhome
         return view('adminhome',['parkir' => $parkir]);
  
     }

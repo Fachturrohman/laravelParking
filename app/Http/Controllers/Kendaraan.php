@@ -15,10 +15,10 @@ class Kendaraan extends Controller
 
     public function tambahkendaraan()
     {
-             $kendaraan = DB::table('kendaraan')->get();
+        $kendaraan = DB::table('kendaraan')->get();
 
-    // memanggil view tambah
-    return view('tambahkendaraan', ['kendaraan' => $kendaraan]);
+        // memanggil view tambahkendaraan
+        return view('tambahkendaraan', ['kendaraan' => $kendaraan]);
  
     }
 
@@ -29,22 +29,22 @@ class Kendaraan extends Controller
            'jenis' => 'required|max:25'
         ]);
 
-    // insert data ke table pegawai
-    DB::table('kendaraan')->insert([
-        'jenis' => $request->jenis
-    ]);
+        // insert data ke table kendaraan
+        DB::table('kendaraan')->insert([
+            'jenis' => $request->jenis
+        ]);
 
-    // alihkan halaman ke halaman pegawai
-    return redirect('/admin/tambahkendaraan');
+        // alihkan halaman ke halaman admin
+        return redirect('/admin/tambahkendaraan');
  
     }
 
     public function hapus($id)
 	{
-	// menghapus data pegawai berdasarkan id yang dipilih
-	DB::table('kendaraan')->where('id_kendaraan',$id)->delete();
+	   // menghapus data kendaraan berdasarkan id yang dipilih
+	   DB::table('kendaraan')->where('id_kendaraan',$id)->delete();
 		
-	// alihkan halaman ke halaman pegawai
-	return redirect('/admin/tambahkendaraan');
+	   // alihkan halaman ke halaman admin
+	   return redirect('/admin/tambahkendaraan');
 	}
 }

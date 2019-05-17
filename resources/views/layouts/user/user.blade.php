@@ -25,13 +25,12 @@
   <div class="wrapper">
     @include('layouts.header')
 
-    @include('layouts.admin.sidebar')
+    @include('layouts.user.sidebar')
 
     <div class="content-wrapper">
       @yield('content')
     </div>
   </div>
-
 <script src="{{url('assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <script src="{{url('assets/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
 <script>
@@ -56,7 +55,7 @@
 <script src="{{ url('assets/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ url('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 
- @section('js')
+  @section('js')
  
   @show
 </body>
