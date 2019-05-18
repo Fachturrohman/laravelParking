@@ -46,8 +46,12 @@
                   <div class="form-group">
                     <label>Jenis Kendaraan</label>
                     <select class="form-control" name="id_kendaraan">
-                      @foreach ($kendaraan as $p)
-                        <option value="{{ $p->id_kendaraan }}">{{ $p->jenis }}</option>
+                      @foreach ($kendaraan as $k)
+                        <option value="{{ $k->id_kendaraan }}"
+                          @if($k->id_kendaraan === $p->id_kendaraan)
+                          selected
+                          @endif
+                          >{{ $k->jenis }}</option>
                       @endforeach
                     </select>
                   </div>

@@ -11,7 +11,7 @@
         <li><a href=""><i class="fa fa-dashboard"></i>Home</a></li>
         <li class="active">Data Parkir</li>
       </ol>
-    </section>
+</section>
 
 <section class="content">
   <div class="row">
