@@ -31,7 +31,7 @@
         </form>
       </div>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-6">
       <div class="box box-info">
         <div class="box-header with-border">
           <h3 class="box-title">Data Kendaraan</h3>
