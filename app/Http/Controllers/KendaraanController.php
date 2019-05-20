@@ -26,7 +26,7 @@ class KendaraanController extends Controller
     {
 
         $this->validate($request,[
-           'jenis' => 'required|max:25'
+           'jenis' => 'required|unique:kendaraan'
         ]);
 
         // insert data ke table kendaraan

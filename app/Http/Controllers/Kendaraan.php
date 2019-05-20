@@ -26,7 +26,7 @@ class Kendaraan extends Controller
     {
 
         $this->validate($request,[
-           'jenis' => 'required|max:25'
+           'jenis' => 'required|unique:kendaraan'
         ]);
 
         // insert data ke table kendaraan
@@ -42,9 +42,10 @@ class Kendaraan extends Controller
     public function hapus($id)
 	{
 	   // menghapus data kendaraan berdasarkan id yang dipilih
-	   DB::table('kendaraan')->where('id_kendaraan',$id)->delete();
-		
+		DB::table('kendaraan')->where('id_kendaraan',$id)->delete();
+
 	   // alihkan halaman ke halaman admin
 	   return redirect('/admin/tambahkendaraan');
-	}
+    }
+
 }
