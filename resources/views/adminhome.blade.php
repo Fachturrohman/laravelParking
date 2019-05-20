@@ -24,8 +24,8 @@
                       <a href="/admin/tambah" class="btn btn-md btn-primary btn-sm">
                       <i class="glyphicon glyphicon-plus"></i> Tambah Data</a>
                         &emsp;&emsp;&emsp;&nbsp;&nbsp;
-                      <a href="/excel-view" class="btn bg-olive btn-primary btn-sm">
-                      <i class="glyphicon glyphicon-export"></i> Ekspor Data</a><p>
+                      <a href="/excel-view" class="btn bg-olive btn-sm">
+                      <i class="glyphicon glyphicon-export"></i> Ekspor Excel</a><p>
 
               <h4><p><b>Masukan Plat Number :</b></p></h4>
                 <form action="/admin/cari" method="GET">
