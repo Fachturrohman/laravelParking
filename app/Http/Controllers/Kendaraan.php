@@ -41,10 +41,26 @@ class Kendaraan extends Controller
 
     public function hapus($id)
 	{
+        
 	   // menghapus data kendaraan berdasarkan id yang dipilih
-		DB::table('kendaraan')->where('id_kendaraan',$id)->delete();
+        $tb = DB::table('kendaraan')->join('tb_parkir', 'kendaraan.id_kendaraan', '=', 'tb_parkir.id_kendaraan')
+        ->where('jenis',$id)
+        ->count();
+        
 
-	   // alihkan halaman ke halaman admin
+        if ($tb > 0) {
+            
+            echo "<script>alert('Data Tidak Bisa Dihapus')</script>";
+            echo "<script>location = '/admin/tambahkendaraan'</script>";
+        }else{
+
+            DB::table('kendaraan')->where('jenis',$id)->delete();
+
+       // alihkan halaman ke halaman admin
          return redirect('/admin/tambahkendaraan');
+        }
+
+
+		
 	   }
 }

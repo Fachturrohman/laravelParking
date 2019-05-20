@@ -44,6 +44,7 @@
                   <tr>
                     <th>No</th>
                     <th>Jenis Kendaraan</th>
+                    <th>Opsi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -53,6 +54,9 @@
                     <tr>
                       <td>{{ $no }}</td>
                       <td>{{ $p->jenis }}</td>
+                      <td>
+                          <a href="/admin/hapuskendaraan/{{ $p->jenis }}" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin menghapus data ini?')">Hapus</a>
+                      </td>
                     </tr>
                   @endforeach
                 </tbody>
