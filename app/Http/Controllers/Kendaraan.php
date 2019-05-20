@@ -45,7 +45,6 @@ class Kendaraan extends Controller
 		DB::table('kendaraan')->where('id_kendaraan',$id)->delete();
 
 	   // alihkan halaman ke halaman admin
-	   return redirect('/admin/tambahkendaraan');
-    }
-
+         return redirect('/admin/tambahkendaraan');
+	   }
 }
