@@ -20,10 +20,10 @@
         <div class="col-xs-12">
           <div class="box box-success">
             <div class="box-header with-border">
-              <h4><b>Tambah Data : &emsp;&emsp;&emsp; Ekspor Data :</b></h4>
+              <h4><b>Tambah Data : &emsp;&emsp; Ekspor Data :</b></h4>
                       <a href="/admin/tambah" class="btn btn-md btn-primary btn-sm">
                       <i class="glyphicon glyphicon-plus"></i> Tambah Data</a>
-                        &emsp;&emsp;&emsp;&emsp;&emsp;
+                        &emsp;&emsp;&emsp;&nbsp;&nbsp;
                       <a href="/excel-view" class="btn bg-olive btn-primary btn-sm">
                       <i class="glyphicon glyphicon-export"></i> Ekspor Data</a><p>
 
