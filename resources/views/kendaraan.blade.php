@@ -4,7 +4,7 @@
 
 <section class="content">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-5">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Tambah Data</h3>
@@ -32,7 +32,7 @@
           </form>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-5">
         <div class="box box-info">
           <div class="box-header with-border">
             <h3 class="box-title">Data Kendaraan</h3>
