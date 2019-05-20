@@ -59,8 +59,5 @@ class Kendaraan extends Controller
        // alihkan halaman ke halaman admin
          return redirect('/admin/tambahkendaraan');
         }
-
-
-		
-	   }
+    }
 }

@@ -60,6 +60,8 @@ class AdminController extends Controller
 	{
 		$this->validate($request,[
            'nama' => 'required|max:25',
+           'merk' => 'required',
+           'harga' => 'numeric'
         ]);
 
 	   // update data parkir
