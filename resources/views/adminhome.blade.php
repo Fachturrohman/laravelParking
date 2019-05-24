@@ -85,7 +85,6 @@
 <script src="{{url('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script>
   $(function () {
-    $('#example1').DataTable()
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': true,

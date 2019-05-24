@@ -6,7 +6,7 @@
     <div class="col-md-5">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Tambah Data</h3>
+          <h3 class="box-title">Tambah Data Kendaraan</h3>
         </div>
         @if ($errors->any())
         <div class="alert alert-danger">
