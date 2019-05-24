@@ -76,7 +76,7 @@
           <div class="box-body">
             <div class="form-group">
                @foreach($harga as $h)
-                <label>Tarif Sekarang : Rp.{{$h->harga}}</label>
+                <label>Tarif Sekarang : Rp. {{ number_format($h->harga)}}</label>
                @endforeach
             </div>
             <div class="form-group">
