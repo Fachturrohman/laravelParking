@@ -66,6 +66,30 @@
         </form>
       </div>
     </div>
+    <div class="col-md-5">
+      <div class="box box-danger">
+        <div class="box-header with-border">
+          <h3 class="box-title">Ubah Tarif</h3>
+        </div>
+        <form action="/admin/ubahtarif" method="post" role="form">
+          {{ csrf_field() }}
+          <div class="box-body">
+            <div class="form-group">
+               @foreach($harga as $h)
+                <label>Tarif Sekarang : Rp.{{$h->harga}}</label>
+               @endforeach
+            </div>
+            <div class="form-group">
+              <label>Ubah Tarif</label>
+              <input type="number" placeholder="Harga" name="harga" class="form-control" value="" required>
+            </div>
+          </div>
+          <div class="box-footer">
+            <input type="submit" class="btn btn-success" value="Simpan">
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
 @endsection

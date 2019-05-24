@@ -1,10 +1,5 @@
-<!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-      <!-- search form -->
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="active treeview">
           <a href="/admin">
@@ -13,10 +8,9 @@
         </li>
         <li>
           <a href="/admin/tambahkendaraan">
-            <i class="fa fa-car"></i> <span>Data Kendaraan</span>
+            <i class="fa fa-clipboard"></i> <span>Manajemen Data</span>
           </a>
         </li> 
       </ul>
     </section>
-    <!-- /.sidebar -->
   </aside>

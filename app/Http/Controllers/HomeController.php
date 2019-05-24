@@ -34,8 +34,9 @@ class HomeController extends Controller
     {
         
         $kendaraan = DB::table('kendaraan')->get();
+        $harga = DB::table('harga')->get();
         // memanggil view tambah
-        return view('tambah', ['kendaraan' => $kendaraan]);
+        return view('tambah', ['kendaraan' => $kendaraan], ['harga' => $harga]);
  
     }
 

@@ -22,7 +22,9 @@ Route::get('/home/cetak/{id}','CetakController@pdf');
 
 Route::get('/admin/tambahkendaraan','Kendaraan@tambahkendaraan');
 Route::post('/admin/storekendaraan','Kendaraan@storekendaraan');
+Route::post('/admin/ubahtarif','AdminController@ubahtarif');
 Route::get('/admin/hapuskendaraan/{id}','Kendaraan@hapus');
+
 
 Route::get('/home/tambahkendaraan','KendaraanController@tambahkendaraan');
 Route::post('/home/storekendaraan','KendaraanController@storekendaraan');

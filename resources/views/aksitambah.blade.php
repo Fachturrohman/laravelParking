@@ -58,7 +58,9 @@
                   </div>
                   <div class="col-md-3 form-group">
                     <label>Harga Parkir </label>
-                    <input type="text" name="harga" class="form-control" value="{{5000}}" readonly="readonly">
+                      @foreach($harga as $h)
+                        <input type="text" name="harga" class="form-control" value="{{$h->harga}}" readonly="readonly">
+                      @endforeach
                   </div>
                 </div>
               </div>

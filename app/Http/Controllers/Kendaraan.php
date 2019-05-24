@@ -16,9 +16,11 @@ class Kendaraan extends Controller
     public function tambahkendaraan()
     {
         $kendaraan = DB::table('kendaraan')->get();
+        
+         $harga = DB::table('harga')->get();
 
         // memanggil view tambahkendaraan
-        return view('tambahkendaraan', ['kendaraan' => $kendaraan]);
+        return view('tambahkendaraan', ['kendaraan' => $kendaraan], ['harga' => $harga]);
  
     }
 

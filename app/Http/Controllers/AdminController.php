@@ -16,9 +16,10 @@ class AdminController extends Controller
     public function tambah()
     {
         $kendaraan = DB::table('kendaraan')->get();
+        $harga = DB::table('harga')->get();
 
         // memanggil view aksitambah
-        return view('aksitambah', ['kendaraan' => $kendaraan]);
+        return view('aksitambah', ['kendaraan' => $kendaraan], ['harga' => $harga]);
  
     }
 
@@ -101,4 +102,20 @@ class AdminController extends Controller
         return view('adminhome',['parkir' => $parkir]);
  
     }
+
+    public function ubahtarif(Request $request)
+    {
+        $this->validate($request,[
+           'harga' => 'numeric'
+        ]);
+
+       // update data parkir
+       DB::table('harga')->update([
+        'harga' => $request->harga
+    ]);
+
+       // alihkan halaman ke halaman admin
+       return redirect('/admin/tambahkendaraan');
+    }
+
 }
