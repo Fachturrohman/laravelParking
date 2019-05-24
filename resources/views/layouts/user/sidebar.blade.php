@@ -8,7 +8,7 @@
       </li>
       <li>
         <a href="/home/tambahkendaraan">
-          <i class="fa fa-clipboard"></i> <span>Data Kendaraan</span>
+          <i class="fa fa-car"></i> <span>Data Kendaraan</span>
         </a>
       </li> 
     </ul>
